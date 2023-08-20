@@ -81,19 +81,19 @@ defmodule DotabuffClientTest do
            ]
   end
 
-  def get_test_html() do
+  def get_test_html do
     {:ok, file_content} = File.read("test/turbo_sample_page.html")
     html = remove_linebreaks(IO.chardata_to_string(file_content))
     {:ok, html}
   end
 
-  def get_test_rows() do
+  def get_test_rows do
     {:ok, file_content} = File.read("test/sample_rows.html")
     html_rows = remove_linebreaks(IO.chardata_to_string(file_content))
     {:ok, html_rows}
   end
 
-  def get_test_row() do
+  def get_test_row do
     {:ok, html_rows} = get_test_rows()
     {:ok, document} = Floki.parse_document(html_rows)
     rows = DotabuffClient.remove_first_element(Floki.find(document, "tr"))

@@ -1,8 +1,11 @@
 defmodule DotabuffClient do
+  @moduledoc """
+  Documentation for `DotabuffClient`.
+  """
   require Logger
 
   @doc false
-  def get_html() do
+  def get_html do
     Logger.info("Getting HTML")
 
     case HTTPoison.get("https://www.dotabuff.com/matches?game_mode=turbo") do
