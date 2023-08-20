@@ -30,6 +30,15 @@ defmodule DotabuffClientTest do
     DotabuffClient.create_data(html_rows)
   end
 
+  test "parse match id" do
+    row = get_test_row()
+
+    assert String.contains?(
+             DotabuffClient.parse_match_id(DotabuffClient.get_columns(row)),
+             "7292524009"
+           )
+  end
+
   test "parse datetime" do
     row = get_test_row()
 
