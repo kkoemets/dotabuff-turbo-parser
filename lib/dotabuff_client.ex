@@ -45,21 +45,12 @@ defmodule DotabuffClient do
 
     case Floki.parse_document(html_rows) do
       {:ok, document} ->
-          remove_first_element(Floki.find(document, "tr"))
-          |> Enum.at(0)
-          |> parse_row()
+        remove_first_element(Floki.find(document, "tr"))
+        |> Enum.at(0)
+        |> parse_row()
     end
   end
 
-  @spec parse_row(
-          binary
-          | [
-              binary
-              | {:comment, binary}
-              | {:pi | binary, binary | [{any, any}], list}
-              | {:doctype, binary, binary, binary}
-            ]
-        ) :: any
   @doc false
   def parse_row(map_row) do
     Logger.info("Parsing row")
@@ -103,7 +94,6 @@ defmodule DotabuffClient do
     |> List.last()
   end
 
-  @spec parse_result(any) :: binary
   @doc false
   def parse_result(columns) do
     Logger.info("Parsing result")
