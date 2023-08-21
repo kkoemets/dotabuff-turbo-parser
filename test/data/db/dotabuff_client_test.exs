@@ -82,13 +82,13 @@ defmodule DotabuffClientTest do
   end
 
   def get_test_html do
-    {:ok, file_content} = File.read("test/turbo_sample_page.html")
+    {:ok, file_content} = File.read("test/data/db/turbo_sample_page.html")
     html = remove_linebreaks(IO.chardata_to_string(file_content))
     {:ok, html}
   end
 
   def get_test_rows do
-    {:ok, file_content} = File.read("test/sample_rows.html")
+    {:ok, file_content} = File.read("test/data/db/sample_rows.html")
     html_rows = remove_linebreaks(IO.chardata_to_string(file_content))
     {:ok, html_rows}
   end

@@ -8,7 +8,7 @@ help:
 	@echo "all - run all"
 
 test:
-	mix test test/dotabuff_client_test.exs
+	mix test
 
 install:
 	mix deps.get

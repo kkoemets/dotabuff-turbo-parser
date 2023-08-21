@@ -3,18 +3,24 @@ defmodule ElixirDemo.MixProject do
 
   def project do
     [
-      app: :elixir_demo,
+      app: :elixir_statistics,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      elixirc_paths:
+        if Mix.env() == :test do
+          ["lib", "test"]
+        else
+          ["lib"]
+        end
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :mix]
     ]
   end
 
@@ -26,7 +32,8 @@ defmodule ElixirDemo.MixProject do
       {:httpoison, "~> 2.1.0"},
       {:floki, "~> 0.34.3"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 end
