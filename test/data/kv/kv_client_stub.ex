@@ -5,7 +5,7 @@ defmodule Kv.KvClientStub do
 
   @behaviour Kv.KvClientBehaviour
   def get_html do
-    {:ok, file} = File.read("test/kv/kv_sample_page.html")
+    {:ok, file} = File.read("test/data/kv/kv24_sample_page.html")
     file |> IO.chardata_to_string()
   end
 end

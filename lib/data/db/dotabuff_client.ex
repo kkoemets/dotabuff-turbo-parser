@@ -11,10 +11,8 @@ defmodule DotabuffClient do
     case HTTPoison.get("https://www.dotabuff.com/matches?game_mode=turbo") do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, body}
-
       {:ok, %HTTPoison.Response{status_code: status_code}} ->
         {:error, "Received status code #{status_code}"}
-
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
     end

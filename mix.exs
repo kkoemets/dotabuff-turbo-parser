@@ -31,9 +31,10 @@ defmodule ElixirDemo.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:httpoison, "~> 2.1.0"},
       {:floki, "~> 0.34.3"},
+      {:jason, "~> 1.4"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
     ]
   end
 end
