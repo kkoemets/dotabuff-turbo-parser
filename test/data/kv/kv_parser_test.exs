@@ -6,5 +6,4 @@ defmodule KvParserTest do
   test "get ad elements" do
     Kv.KvParser.get_ad_elements()
   end
-
 end

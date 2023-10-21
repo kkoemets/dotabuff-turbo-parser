@@ -34,7 +34,7 @@ defmodule ElixirDemo.MixProject do
       {:jason, "~> 1.4"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:mox, "~> 1.0", only: :test},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 end
