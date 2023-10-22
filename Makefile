@@ -1,4 +1,4 @@
-.PHONY: help test install dialyzer credo format all
+.PHONY: help test install dialyzer credo format docker all
 
 help:
 	@echo "test - run tests"
@@ -6,6 +6,7 @@ help:
 	@echo "dialyzer - run dialyzer"
 	@echo "credo - run credo"
 	@echo "format - run formatter"
+	@echo "docker - run docker"
 	@echo "all - run all"
 
 test:
@@ -22,6 +23,9 @@ credo:
 
 format:
 	mix format
+
+docker:
+	docker-compose up --build -d
 
 all:
 	make install

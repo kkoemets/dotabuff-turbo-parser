@@ -2,7 +2,7 @@ defmodule Kv.KvParser do
   @moduledoc """
   Documentation for `KvParser`.
   """
-  @kv_client Application.compile_env(:elixir_statistics, Kv.KvParser, [])
+  @kv_client Application.compile_env(:elixir_web_scraping, Kv.KvParser, [])
              |> Keyword.get(:kv_client, Kv.KvClient)
 
   def get_ad_elements do

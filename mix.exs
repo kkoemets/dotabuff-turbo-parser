@@ -3,7 +3,7 @@ defmodule ElixirDemo.MixProject do
 
   def project do
     [
-      app: :elixir_statistics,
+      app: :elixir_web_scraping,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
@@ -20,7 +20,8 @@ defmodule ElixirDemo.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :mix]
+      extra_applications: [:logger, :mix, :quantum],
+      mod: {ElixirWebScraping.Application, []}
     ]
   end
 
@@ -34,7 +35,9 @@ defmodule ElixirDemo.MixProject do
       {:jason, "~> 1.4"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
+      {:amqp, "~> 3.3"},
+      {:quantum, "~> 3.5"}
     ]
   end
 end

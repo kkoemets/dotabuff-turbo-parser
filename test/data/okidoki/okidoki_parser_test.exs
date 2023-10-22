@@ -58,7 +58,8 @@ defmodule OkidokiParserTest do
                  "Müüa töökorras korralik iPhone 13 Pro Max 128GB Sierra Blue\nTelefoni kõik funktsioonid töötavad ning välimus on viisakas.\nBattery Health on 88%\nKaasa tuleb karp ja uus kasutamata usb-c laadimiskaabel.",
                href: "https://www.okidoki.ee/item/iphone-13-pro-max-gold-128gb/12393804/",
                price: "630 €",
-               title: "iPhone 13 Pro Max 128GB Sierra Blue"
+               title: "iPhone 13 Pro Max 128GB Sierra Blue",
+               created_at: "30.09.2023 11:38"
              }
   end
 
@@ -68,7 +69,8 @@ defmodule OkidokiParserTest do
                description: "",
                href: "missing_data",
                price: "",
-               title: ""
+               title: "",
+               created_at: ""
              }
   end
 end

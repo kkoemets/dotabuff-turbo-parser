@@ -3,8 +3,13 @@ defmodule Okidoki.OkidokiParser do
     Documentation for Okidoki.OkidokiParser
   """
 
-  @okidoki_client Application.compile_env(:elixir_statistics, Okidoki.OkidokiParser, [])
+  @okidoki_client Application.compile_env(:elixir_web_scraping, Okidoki.OkidokiParser, [])
                   |> Keyword.get(:okidoki_client, Okidoki.OkidokiClient)
+
+  def get_offers_data do
+    get_offer_links()
+    |> Enum.map(fn x -> get_offer_details(x) end)
+  end
 
   def get_offer_links do
     @okidoki_client.get_search_results_html
@@ -33,6 +38,13 @@ defmodule Okidoki.OkidokiParser do
             Floki.find(document, "div[class='description']")
             |> Floki.find("p")
             |> Floki.text(deep: false),
+          created_at:
+            Floki.find(document, "div[class='stats-views__item']")
+            |> List.last()
+            |> Floki.find("span")
+            |> Floki.text(deep: false)
+            |> String.replace("Lisatud:", "")
+            |> String.trim(),
           href: offer_link
         }
     end
