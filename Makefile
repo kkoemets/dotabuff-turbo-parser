@@ -1,4 +1,4 @@
-.PHONY: help test install dialyzer credo format docker all
+.PHONY: help test install dialyzer credo format docker_rabbitmq start
 
 help:
 	@echo "test - run tests"
@@ -6,8 +6,8 @@ help:
 	@echo "dialyzer - run dialyzer"
 	@echo "credo - run credo"
 	@echo "format - run formatter"
-	@echo "docker - run docker"
-	@echo "all - run all"
+	@echo "docker_rabbitmq - run rabbitmq in docker"
+	@echo "start - run application"
 
 test:
 	mix test
@@ -24,12 +24,9 @@ credo:
 format:
 	mix format
 
-docker:
-	docker-compose up --build -d
+docker_rabbitmq:
+	docker-compose up --build -d rabbitmq
 
-all:
-	make install
-	make test
-	make dialyzer
-	make credo
-	make format
+start:
+	mix run --no-halt
+

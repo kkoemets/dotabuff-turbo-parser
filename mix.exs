@@ -37,7 +37,8 @@ defmodule ElixirDemo.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:mox, "~> 1.0", only: :test},
       {:amqp, "~> 3.3"},
-      {:quantum, "~> 3.5"}
+      {:quantum, "~> 3.5"},
+      {:hound, "~> 1.0"}
     ]
   end
 end

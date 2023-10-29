@@ -1,4 +1,5 @@
 require Logger
+require Jason
 
 defmodule Broker do
   use AMQP
@@ -9,7 +10,9 @@ defmodule Broker do
     {:ok, connection} = AMQP.Connection.open()
     {:ok, channel} = AMQP.Channel.open(connection)
 
-    AMQP.Basic.publish(channel, "", "send_email_queue", data)
+    Logger.info("Queue message payload: #{inspect(Jason.encode!(data, pretty: true))}")
+
+    AMQP.Basic.publish(channel, "", "send_email_queue", Jason.encode!(data))
 
     Logger.info("Message sent!")
   end
