@@ -10,8 +10,12 @@ defmodule Okidoki.OkidokiParser do
 
   def get_offers_data do
     get_offer_links()
-    |> Enum.map(fn x -> Task.async(fn -> get_offer_details(x) end) end)
-    |> Enum.map(fn task -> Task.await(task, 75000) end)
+    |> Enum.chunk_every(3)
+    |> Enum.flat_map(fn batch ->
+      batch
+      |> Enum.map(fn x -> Task.async(fn -> get_offer_details(x) end) end)
+      |> Enum.map(fn task -> Task.await(task, 75000) end)
+    end)
   end
 
   def get_offer_links do
